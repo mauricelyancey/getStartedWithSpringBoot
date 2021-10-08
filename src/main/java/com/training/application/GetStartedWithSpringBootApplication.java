@@ -7,10 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"com.training.controller", "com.training.service"})
+//@ComponentScan({"com.training.controller", "com.training.service"})
 @EntityScan("com.training.entity")
 @EnableJpaRepositories("com.training.repository")
-//@ComponentScan(basePackages = "src/main/java")
+@ComponentScan(basePackages = "com.training")
 public class GetStartedWithSpringBootApplication {
 
 	public static void main(String[] args) {

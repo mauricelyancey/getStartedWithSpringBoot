@@ -15,18 +15,8 @@ import java.util.List;
 @RequestMapping("/api/student/")
 public class StudentController {
 
-//    @Value("${app.name:Default Demo App}")
-//    private String appName;
-
     @Autowired
     StudentService studentService;
-
-//    @GetMapping("/get")
-//    public String getStudent(){
-////        StudentResponse studentResponse = new StudentResponse(1, "Reese", "Smith");
-////        return studentResponse;
-//        return "Reese Smith";
-//    }
 
     @GetMapping("/getAll")
     public List<StudentResponse> getAllStudents(){
