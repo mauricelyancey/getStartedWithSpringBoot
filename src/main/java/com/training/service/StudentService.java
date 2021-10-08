@@ -86,4 +86,8 @@ public class StudentService {
     public List<Student> findbyStartsWith(String firstName) {
         return studentRepository.findByFirstNameStartsWith(firstName);
     }
+
+    public List<Student> findbyEndsWith(String firstName) {
+        return studentRepository.findByFirstNameEndsWith(firstName);
+    }
 }
