@@ -1,9 +1,9 @@
-package service;
+package com.training.service;
 
-import entity.Student;
+import com.training.entity.Student;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import repository.StudentRepository;
+import com.training.repository.StudentRepository;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package entity;
+package com.training.entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,4 +1,4 @@
-package InfyBuzzLearning.getStartedWithSpringBoot;
+package com.training.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -7,9 +7,10 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({"src/main/java/controller", "src/main/java/service"})
-@EntityScan("src/main/java/entity")
-@EnableJpaRepositories("src/main/java/repository")
+@ComponentScan({"com.training.controller", "com.training.service"})
+@EntityScan("com.training.entity")
+@EnableJpaRepositories("com.training.repository")
+//@ComponentScan(basePackages = "src/main/java")
 public class GetStartedWithSpringBootApplication {
 
 	public static void main(String[] args) {

@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Main-Class: InfyBuzzLearning.getStartedWithSpringBoot.GetStartedWithSpri
+Main-Class: com.training.application.GetStartedWithSpri
  ngBootApplication
 

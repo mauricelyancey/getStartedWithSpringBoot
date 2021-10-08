@@ -1,6 +1,6 @@
-package repository;
+package com.training.repository;
 
-import entity.Student;
+import com.training.entity.Student;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
