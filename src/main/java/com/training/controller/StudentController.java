@@ -2,6 +2,7 @@ package com.training.controller;
 
 import com.training.entity.Student;
 import com.training.request.CreateStudentRequest;
+import com.training.request.InQueryRequest;
 import com.training.request.UpdateStudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -81,6 +82,35 @@ public class StudentController {
     @GetMapping("getByEmail/{email}")
     public List<StudentResponse> getByEmail(@PathVariable String email){
         List<Student> studentList=studentService.getByEmail(email);
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
+
+    @GetMapping("getByFirstNameAndLastName/{firstName}/{lastName}")
+    public StudentResponse getByFirstNameAndLastName(@PathVariable String firstName, @PathVariable String lastName){
+        return new StudentResponse(studentService.getByFirstNameAndLastName(firstName,lastName));
+    }
+
+    @GetMapping("getByFirstNameOrLastName/{firstName}/{lastName}")
+    public List<StudentResponse> getByFirstNameOrLastName(@PathVariable String firstName, @PathVariable String lastName){
+        List<Student> studentList=studentService.getByFirstNameOrLastName(firstName, lastName);
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
+
+    @GetMapping("getByFirstNameIn")
+    public List<StudentResponse> getByFirstNameIn(@RequestBody InQueryRequest inQueryRequest){
+        List<Student> studentList=studentService.getByFirstNameIn(inQueryRequest);
         List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
 
         studentList.stream().forEach(student -> {
