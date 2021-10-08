@@ -43,4 +43,14 @@ public class StudentController {
 
         return new StudentResponse(student);
     }
+
+//    @DeleteMapping("/delete")
+//    public String deleteStudent(@RequestParam long id){
+//        return studentService.deleteStudent(id);
+//    }
+
+    @DeleteMapping("/delete/{id}")
+    public String deleteStudent(@PathVariable long id){
+        return studentService.deleteStudent(id);
+    }
 }

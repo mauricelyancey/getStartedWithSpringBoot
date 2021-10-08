@@ -42,4 +42,9 @@ public class StudentService {
 
         return  student;
     }
+
+    public String deleteStudent(long id){
+       studentRepository.deleteById(id);
+        return "Student has been deleted successfully";
+    }
 }
