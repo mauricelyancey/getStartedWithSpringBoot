@@ -28,10 +28,14 @@ public class Student {
     @Column(name="email")
     private String email;
 
+    @Transient //Indicates that this is not a column represented in the table. Will not be persisted to DB
+    private String fullName;
+
     public Student(CreateStudentRequest createStudentRequest){
         this.firstName=createStudentRequest.getFirstName();
         this.lastName=createStudentRequest.getLastName();
         this.email=createStudentRequest.getEmail();
+        this.fullName=createStudentRequest.getFirstName() + " " + createStudentRequest.getLastName();
     }
 
 }
