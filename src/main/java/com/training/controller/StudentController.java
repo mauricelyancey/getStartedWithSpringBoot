@@ -144,4 +144,28 @@ public class StudentController {
 
         return studentResponseList;
     }
+
+    @GetMapping("like/{firstName}")
+    public List<StudentResponse> like(@PathVariable String firstName){
+        List<Student> studentList=studentService.findByLike(firstName);
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
+
+    @GetMapping("startsWith/{firstName}")
+    public List<StudentResponse> startsWith(@PathVariable String firstName){
+        List<Student> studentList=studentService.findbyStartsWith(firstName);
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
 }

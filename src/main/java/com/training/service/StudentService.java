@@ -78,4 +78,12 @@ public class StudentService {
 
         return studentRepository.findAll(sort);
     }
+
+    public List<Student> findByLike(String firstName) {
+        return studentRepository.findByFirstNameContains(firstName);
+    }
+
+    public List<Student> findbyStartsWith(String firstName) {
+        return studentRepository.findByFirstNameStartsWith(firstName);
+    }
 }
