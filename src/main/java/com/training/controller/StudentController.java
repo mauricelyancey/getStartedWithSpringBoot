@@ -2,6 +2,7 @@ package com.training.controller;
 
 import com.training.entity.Student;
 import com.training.request.CreateStudentRequest;
+import com.training.request.UpdateStudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import com.training.response.StudentResponse;
@@ -36,4 +37,10 @@ public class StudentController {
         return new StudentResponse(student);
     }
 
+    @PutMapping("/update")
+    public StudentResponse updateStudent(@Valid @RequestBody UpdateStudentRequest updateStudentRequest){
+        Student student= studentService.updateStudent(updateStudentRequest);
+
+        return new StudentResponse(student);
+    }
 }
