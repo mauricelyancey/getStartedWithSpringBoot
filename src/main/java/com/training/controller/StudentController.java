@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import com.training.response.StudentResponse;
 import com.training.service.StudentService;
 
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class StudentController {
     }
 
     @PostMapping("/create")
-    public StudentResponse createStudent(@RequestBody CreateStudentRequest createStudentRequest){
+    public StudentResponse createStudent(@Valid @RequestBody CreateStudentRequest createStudentRequest){
         Student student=studentService.createStudent(createStudentRequest);
 
         return new StudentResponse(student);
