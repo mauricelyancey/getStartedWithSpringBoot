@@ -119,4 +119,29 @@ public class StudentController {
 
         return studentResponseList;
     }
+
+    @GetMapping("getAllWithPagination")
+    public List<StudentResponse> getAllStudentsWithPagination(@RequestParam int pageNo,
+                                                             @RequestParam int pageSize){
+        List<Student> studentList=studentService.getAllStudentsWithPagination(pageNo, pageSize);
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
+
+    @GetMapping("getAllWithSorting")
+    public List<StudentResponse> getAllWithSorting(){
+        List<Student> studentList=studentService.getAllStudentsWithSorting();
+        List<StudentResponse> studentResponseList= new ArrayList<StudentResponse>();
+
+        studentList.stream().forEach(student -> {
+            studentResponseList.add(new StudentResponse(student));
+        });
+
+        return studentResponseList;
+    }
 }
