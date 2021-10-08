@@ -1,10 +1,9 @@
 package com.training.controller;
 
 import com.training.entity.Student;
+import com.training.request.CreateStudentRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import com.training.response.StudentResponse;
 import com.training.service.StudentService;
 
@@ -29,5 +28,11 @@ public class StudentController {
         return studentResponseList;
     }
 
+    @PostMapping("/create")
+    public StudentResponse createStudent(@RequestBody CreateStudentRequest createStudentRequest){
+        Student student=studentService.createStudent(createStudentRequest);
+
+        return new StudentResponse(student);
+    }
 
 }

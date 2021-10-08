@@ -1,6 +1,8 @@
 package com.training.service;
 
 import com.training.entity.Student;
+import com.training.request.CreateStudentRequest;
+import lombok.val;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.training.repository.StudentRepository;
@@ -14,5 +16,12 @@ public class StudentService {
 
     public List<Student> getAllStudents() {
        return studentRepository.findAll();
+    }
+
+    public Student createStudent(CreateStudentRequest createStudentRequest){
+        Student student=new Student(createStudentRequest);
+
+        student = studentRepository.save(student);
+        return student;
     }
 }
